@@ -1,0 +1,108 @@
+:root {
+    --white: white;
+    --transparent: rgba(255, 255, 255, 0);
+    --text-black: #1a1b1f;
+    --text-light-dark: rgba(26, 27, 31, .75);
+    --green: #4e6025;
+    --text-white: #e4e4e4;
+    --black: black;
+    --dark-green: #181b11;
+}
+
+/* Body */
+
+.body {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin: 0;
+}
+
+h1 {
+    font-size: 38px;
+    line-height: 44px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 36px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+h6 {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+
+.section-header-text {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+/*  */
+.primary-btn {
+    width: 140px;
+    height: auto;
+    border: 2px solid var(--black);
+    background-color: var(--white);
+    color: var(--text-black);
+    border-radius: 10px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-radius .6s;
+    display: flex;
+}
+
+.primary-btn:hover {
+    border-radius: 20px;
+}
+
+.secondary-btn {
+    background-color: var(--green);
+    color: var(--text-white);
+    border-radius: 10px;
+    padding: 15px 60px;
+    font-family: Nothing You Could Do, sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    transition: border-radius .6s;
+    -webkit-text-stroke-width: 1px;
+    letter-spacing: 4px;
+    font-size: 18px;
+}
+
+.secondary-btn:hover {
+    border-radius: 20px;
+}
+
+/*  */
