@@ -25,13 +25,6 @@
     z-index: 10;
 }
 
-.container {
-    background-color: var(--grey);
-    flex-flow: row;
-    display: block;
-    position: relative;
-}
-
 .nav-left-container {
     grid-column-gap: 20px;
     grid-row-gap: 20px;

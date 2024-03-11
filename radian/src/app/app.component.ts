@@ -9,17 +9,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 // Pages
 
 import { HomePage } from './pages/home/home';
-
+import { Navigation } from './components/navigation/nav.component';
+import { InventoryPage } from './pages/Inverntory/inventory';
 
 // Components
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,  PageNotFoundComponent,
   RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule, MatIconModule, //import any components
-  HomePage, //import pages
-   //import components
+  HomePage, InventoryPage, //import pages
+  Navigation, //import components
 ], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

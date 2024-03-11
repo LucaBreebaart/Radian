@@ -1,37 +1,4 @@
-.body-container {
-    width: auto;
-    height: auto;
-    max-width: none;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    background-color: var(--grey);
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 220px;
-    margin-right: 0;
-    padding: 0;
-    display: block;
-    position: relative;
-    top: 60px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
 
-}
-
-.body-wrapper {
-    width: 100%;
-    max-width: 1440px;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    flex-flow: column;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px 40px;
-    display: flex;
-}
 
 .card-wrapper {
     width: auto;

@@ -32,6 +32,8 @@
     position: relative;
 }
 
+
+
 .nav-left-container {
     grid-column-gap: 20px;
     grid-row-gap: 20px;
