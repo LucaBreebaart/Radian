@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { productCard } from '../../components/productCard/productCard.component';
+import { AdminCard } from '../../components/adminCard/card.component';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { productCard } from '../../components/productCard/productCard.component'
   standalone: true,
   imports: [
 
-    productCard, 
+    AdminCard,
     //import components
   ],
   templateUrl: './home.html',

@@ -63,3 +63,27 @@ h6 {
     font-size: 12px;
     line-height: 18px;
 }
+
+/*  */
+
+.primary-btn {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    background-color: var(--text-black);
+    color: var(--light-grey);
+    border-radius: 10px;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    display: flex;
+}
+
+.primary-btn.heading {
+    background-color: var(--white);
+}
+
+.primary-btn.current {
+    background-color: var(--grey);
+}
