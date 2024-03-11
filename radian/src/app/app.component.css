@@ -6,8 +6,8 @@
     --transparent: rgba(255, 255, 255, 0);
     --text-black: #141414;
     --black: black;
-  }
-  
+}
+
 
 /* Body */
 * {
@@ -56,6 +56,13 @@
     margin-right: auto;
     padding: 40px 40px;
     display: flex;
+}
+
+.container {
+    background-color: var(--grey);
+    flex-flow: row;
+    display: block;
+    position: relative;
 }
 
 h1,
@@ -112,6 +119,7 @@ h6 {
     padding: 10px 30px;
     text-decoration: none;
     display: flex;
+    max-width: 150px;
 }
 
 .primary-btn.heading {
