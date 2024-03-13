@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 
-import { AdminCard } from '../../components/adminCard/card.component';
-
+import { productsCard } from '../../components/ProductsCard/card.component'; 
 
 @Component({
-  selector: 'app-inventory',
+  selector: 'ProductsPage',
   standalone: true,
   imports: [
 
-    AdminCard,
+    productsCard,
     //import components
   ],
   templateUrl: './inventory.html',
   styleUrls: ['./inventory.css', '../../app.component.css']
 })
-export class InventoryPage {
+export class ProductsPage {
 
 }

@@ -10,7 +10,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { HomePage } from './pages/home/home';
 import { Navigation } from './components/navigation/nav.component';
-import { InventoryPage } from './pages/Inverntory/inventory';
+import { IngredientsPage } from './pages/ingredients/ingredients';
+import { NewProductPage } from './pages/createNewProduct/newProduct';
+import { ProductsPage } from './pages/products/inventory';
 
 // Components
 
@@ -20,7 +22,7 @@ import { InventoryPage } from './pages/Inverntory/inventory';
   standalone: true,
   imports: [RouterOutlet,  PageNotFoundComponent,
   RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule, MatIconModule, //import any components
-  HomePage, InventoryPage, //import pages
+  HomePage, IngredientsPage, NewProductPage,ProductsPage,  //import pages
   Navigation, //import components
 ], 
   templateUrl: './app.component.html',

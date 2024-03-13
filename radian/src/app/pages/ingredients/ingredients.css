@@ -1,0 +1,103 @@
+
+.container {
+    background-color: var(--grey);
+    flex-flow: row;
+    display: block;
+    position: relative;
+}
+
+
+
+.card-wrapper {
+    width: auto;
+    border: 2px solid var(--light-grey);
+    background-color: var(--white);
+    border-radius: 15px;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+
+.card-header {
+    width: 100%;
+    height: auto;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    display: flex;
+}
+
+.card-headings {
+    width: 100%;
+    height: 70px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: var(--light-grey);
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: stretch;
+    padding: 10px;
+    display: flex;
+}
+
+.card-headings._2 {
+    background-color: var(--white);
+}
+
+.heading-container {
+    width: 40%;
+    height: 100%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    /* background-color: #ff8989; */
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.heading-container._2 {
+    width: 10%;
+}
+
+.heading-container._3 {
+    width: 10%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.heading-container-copy {
+    width: 40%;
+    height: 100%;
+    background-color: #ff8989;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.heading-container-copy._2 {
+    width: 10%;
+}
+
+.heading-container-copy._3 {
+    width: 10%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.ingredientscard{
+    width: 100%;
+}
