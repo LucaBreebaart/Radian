@@ -9,5 +9,8 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
   styleUrls: ['./card.component.css', '../../app.component.css']
 })
 export class IngredientsCard {
-  // @Input() items: any[] = [];
+
+  @Input() items: any[] = [];
+
+
 }
