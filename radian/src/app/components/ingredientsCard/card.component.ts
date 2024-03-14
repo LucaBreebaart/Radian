@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 })
 export class IngredientsCard {
 
-  @Input() items: any[] = [];
+  // @Input() items: any[] = [];
 
 
 }
