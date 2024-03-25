@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                    <IngredientsCard class="ingredientscard"></IngredientsCard>
+                    <app-ingredients *ngFor="let item of inventoryList" [item]="item" class="ingredientscard"></app-ingredients>
 
                 </div>
             </div>
