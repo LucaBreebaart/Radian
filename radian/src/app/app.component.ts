@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found/404';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -16,6 +16,11 @@ import { ProductsPage } from './pages/products/inventory';
 
 // Components
 
+import { LoginComponent } from './components/login/login.component';
+
+//Other
+
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -23,12 +28,36 @@ import { ProductsPage } from './pages/products/inventory';
   imports: [RouterOutlet,  PageNotFoundComponent,
   RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule, MatIconModule, //import any components
   HomePage, IngredientsPage, NewProductPage,ProductsPage,  //import pages
-  Navigation, //import components
+  Navigation, LoginComponent//import components
 ], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = '';
+  title = 'Class-Inventory';
+
+  constructor(private service: AuthService, private router: Router) { }
+
+  public isLoggedIn = true
+
+  public isAdmin = true
+
+  ngOnInit() {
+    this.checkLoginState()
+    this.isAdmin = this.service.isUserAdmin()
+  }
+
+  checkLoginState() {
+    this.service.checkIfLoggedIn().subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn
+
+      this.isAdmin = this.service.isUserAdmin()
+    })
+  }
+
+  callLogout() {
+    this.service.logout()
+    this.router.navigateByUrl("/login")
+  }
 }
 
