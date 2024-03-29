@@ -10,8 +10,8 @@ import { productsCard } from '../../components/ProductsCard/card.component';
     productsCard,
     //import components
   ],
-  templateUrl: './inventory.html',
-  styleUrls: ['./inventory.css', '../../app.component.css']
+  templateUrl: './products.html',
+  styleUrls: ['./products.css', '../../app.component.css']
 })
 export class ProductsPage {
 

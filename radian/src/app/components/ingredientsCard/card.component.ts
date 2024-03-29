@@ -20,6 +20,6 @@ export class IngredientsComponent {
     category: "Dummy",
     icon: "assets/python.png",
     description: "Dummy",
-    amount: 0
+    stock: 0
   }
 }

@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from './components/page-not-found/404';
 // Pages
 import { HomePage } from './pages/home/home';
 import { NewProductPage } from './pages/createNewProduct/newProduct';
-import { ProductsPage } from './pages/products/inventory';
+import { ProductsPage } from './pages/products/products';
 import { IngredientsPage } from './pages/ingredients/ingredients';
 import { LoginComponent } from './components/login/login.component';
 import { AdminAuthGuard, AuthGuard } from './guards/auth.guard';

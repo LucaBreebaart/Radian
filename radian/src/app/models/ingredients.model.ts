@@ -4,5 +4,5 @@ export interface Ingredients {
     category: string;
     icon: string;
     description:string;
-    amount: number;
+    stock: number;
 }

@@ -26,7 +26,7 @@ export class IngredientsPage {
       category: "markup",
       icon: "assets/html-5.png",
       description: "Building blocks of the web",
-      amount: 4
+      stock: 4
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ export class IngredientsPage {
       category: "styling",
       icon: "assets/css-3.png",
       description: "Makes the web pretty",
-      amount: 10
+      stock: 10
     },
     {
       id: 3,
@@ -42,7 +42,7 @@ export class IngredientsPage {
       category: "programming",
       icon: "assets/js.png",
       description: "Makes the web smart",
-      amount: 13
+      stock: 13
     }
   ];
   ngOnInit() {
