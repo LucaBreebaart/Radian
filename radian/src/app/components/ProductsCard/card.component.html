@@ -26,4 +26,31 @@
             </svg></div>
     </div>
 </div>
+
+<div>
+    <div>
+        @for(recipe of recipes; track $index){
+            <p (click)="setSelectedRecipe(recipe)">{{recipe.name}}</p>
+        }
+    </div>
+
+    @if(selectedRecipe) {
+        <div style="background-color: lightcoral; padding: 20px;">
+            <p>{{selectedRecipe.name}}</p>
+
+            <p>Amont Crafted {{selectedRecipe.amountCrafted}}</p>
+
+            <p>Ingredients Needed</p>
+
+            <ul>
+                @for (product of selectedRecipe.products; track $index) {
+                    <li [style]="product.ingredient.stock >= product.amount ? 'color: green' : 'color: red'"></li>
+                }
+            </ul>
+        </div>
+    }
+</div>
+
+
+
 <!--  -->
