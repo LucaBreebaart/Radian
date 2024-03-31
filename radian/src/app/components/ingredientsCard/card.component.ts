@@ -17,6 +17,7 @@ export class IngredientsComponent {
   @Input() item: Ingredients = {
     id: 0,
     name: "Dummy",
+    sku: "Dummy",
     category: "Dummy",
     icon: "assets/python.png",
     description: "Dummy",

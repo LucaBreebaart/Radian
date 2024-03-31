@@ -35,16 +35,16 @@
     </div>
 
     @if(selectedRecipe) {
-        <div style="background-color: lightcoral; padding: 20px;">
+        <div style="background-color: gray; padding: 20px;">
             <p>{{selectedRecipe.name}}</p>
 
-            <p>Amont Crafted {{selectedRecipe.amountCrafted}}</p>
+            <p>Amount Crafted {{selectedRecipe.amountCrafted}}</p>
 
             <p>Ingredients Needed</p>
 
             <ul>
                 @for (product of selectedRecipe.products; track $index) {
-                    <li [style]="product.ingredient.stock >= product.amount ? 'color: green' : 'color: red'"></li>
+                    <li [style]="product.ingredient.stock >= product.amount ? 'color: green' : 'color: red'">{{product.ingredient}}</li>
                 }
             </ul>
         </div>

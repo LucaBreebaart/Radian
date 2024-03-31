@@ -23,6 +23,7 @@ export class IngredientsPage {
     {
       id: 1,
       name: "HTML",
+      sku: "html",
       category: "markup",
       icon: "assets/html-5.png",
       description: "Building blocks of the web",
@@ -31,6 +32,7 @@ export class IngredientsPage {
     {
       id: 3,
       name: "CSS",
+      sku: "css1",
       category: "styling",
       icon: "assets/css-3.png",
       description: "Makes the web pretty",
@@ -39,6 +41,7 @@ export class IngredientsPage {
     {
       id: 3,
       name: "JavaScript",
+      sku: "js01",
       category: "programming",
       icon: "assets/js.png",
       description: "Makes the web smart",
