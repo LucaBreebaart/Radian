@@ -52,7 +52,7 @@
 }
 
 .heading-container {
-    width: 40%;
+    width: 20%;
     height: 100%;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
@@ -70,6 +70,10 @@
 }
 
 .heading-container._3 {
+    width: 30%;
+}
+
+.heading-container._4 {
     width: 10%;
     justify-content: flex-end;
     align-items: center;

@@ -12,7 +12,7 @@
                     </div>
                     <div class="card-headings">
                         <div class="heading-container">
-                            <div>Null</div>
+                            <div>Product</div>
                         </div>
                         <div class="heading-container _2">
                             <div>Stock</div>
@@ -20,17 +20,14 @@
                         <div class="heading-container _2">
                             <div>Price</div>
                         </div>
-                        <div class="heading-container _2">
-                            <div>Sku</div>
-                        </div>
-                        <div class="heading-container _2">
-                            <div></div>
-                        </div>
                         <div class="heading-container _3">
+                            <div>Description</div>
+                        </div>
+                        <div class="heading-container _4">
                             <div></div>
                         </div>
                     </div>
-                    <productsCard class="productscard"></productsCard>
+                    <productsCard *ngFor="let recipes of recipeList" [recipes]="recipes" class="productscard"></productsCard>
                 </div>
             </div>
         </div>

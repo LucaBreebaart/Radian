@@ -14,40 +14,55 @@ export class productsCard {
 
   constructor (private service: RecipeService) {}
 
-  //Get all recipes
-  recipes: Recipe[] = []
+  @Input() recipes: Recipe = {
 
-  ngOnInit(){
-    this.getRecipes()
-  }
+    id: 0,
+    name: "Product Name",
+    img: "https://shorturl.at/dswR5",
+    price: 99,
+    description: "this is a description",
+    amountCrafted: 0,
   
-  getRecipes(){
-    this.service.getAllRecipes().subscribe((data) => {
-      this.recipes = data
-      console.log(data)
-    })
   }
 
-  selectedRecipe?: Recipe
+// Get all recipes
+  // recipes: Recipe[] = []
 
-  setSelectedRecipe(recipe: Recipe){
-    this.selectedRecipe = recipe
+  // ngOnInit(){
+  //   this.getRecipes()
+  // }
 
-
-  }
-
-  checkCraftablity() {
-    
-    this.selectedRecipe!.isCraftable = true;
-
-    this.selectedRecipe!.products?.forEach((product) =>{
-
-      if (product.amount > product.ingredient.stock) {
-
-        this.selectedRecipe!.isCraftable = false
-        console.log('not craftable' + product.ingredient.name)
-        return
-      }
-    });
-  }
+  // getRecipes(){
+  //   this.service.getAllRecipes().subscribe((data) => {
+  //     this.recipes = data
+  //     console.log(data)
+  //   })
+  // }
 }
+
+
+
+
+//   selectedRecipe?: Recipe
+
+//   setSelectedRecipe(recipe: Recipe){
+//     this.selectedRecipe = recipe
+
+
+//   }
+
+//   checkCraftablity() {
+    
+//     this.selectedRecipe!.isCraftable = true;
+
+//     this.selectedRecipe!.products?.forEach((product) =>{
+
+//       if (product.amount > product.ingredient.stock) {
+
+//         this.selectedRecipe!.isCraftable = false
+//         console.log('not craftable' + product.ingredient.name)
+//         return
+//       }
+//     });
+//   }
+// }

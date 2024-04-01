@@ -6,6 +6,7 @@ import { Recipe } from '../models/recipe.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class RecipeService {
 
   constructor(private http: HttpClient) { }
