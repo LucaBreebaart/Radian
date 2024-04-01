@@ -19,9 +19,7 @@ export class NewIngredientPage {
 
   constructor(private service: IngredientsService) { }
 
-  IngredientList: Ingredients[] = [
-
-  ];
+  IngredientList: Ingredients[] = [];
 
   ngOnInit() {
     this.service.getAllInventory().subscribe((data) => {
@@ -76,14 +74,12 @@ export class NewIngredientPage {
     this.service.addIngredient(newIngredientData).subscribe(
       (response: any) => {
         console.log('New ingredient added successfully:', response);
-        // Optionally, you can update the local IngredientList with the new data if needed
-        // this.IngredientList.push(response);
-        // Reset the form after successful submission
+        
         this.newIngredientItem.reset();
       },
       (error) => {
         console.error('Error adding new ingredient:', error);
-        // Handle error here, such as showing an error message to the user
+       
       }
     );
   }

@@ -25,7 +25,7 @@ export class IngredientsPage {
       name: "HTML",
       sku: "html",
       category: "markup",
-      icon: "assets/html-5.png",
+      icon: "",
       description: "Building blocks of the web",
       stock: 4
     },
@@ -34,7 +34,7 @@ export class IngredientsPage {
       name: "CSS",
       sku: "css1",
       category: "styling",
-      icon: "assets/css-3.png",
+      icon: "",
       description: "Makes the web pretty",
       stock: 10
     },
@@ -43,7 +43,7 @@ export class IngredientsPage {
       name: "JavaScript",
       sku: "js01",
       category: "programming",
-      icon: "assets/js.png",
+      icon: "",
       description: "Makes the web smart",
       stock: 13
     }

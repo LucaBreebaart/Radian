@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="body-container">
+        <div class="body-wrapper">
+            <h3>Edit Ingredient</h3>
+            <form [formGroup]="editIngredientForm" (ngSubmit)="updateIngredient()">
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Name</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="name" class="input" type="text" [value]="ingredient?.name" />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>SKU</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="sku" class="input" type="text" [value]="ingredient?.sku" />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Category</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="category" class="input" type="text" [value]="ingredient?.category" />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Icon</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="icon" class="input" type="text" [value]="ingredient?.icon" />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Description</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="description" class="input" type="text"
+                            [value]="ingredient?.description" />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Stock</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="stock" class="input" type="number" [value]="ingredient?.stock" />
+                    </div>
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
