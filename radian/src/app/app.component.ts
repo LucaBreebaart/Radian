@@ -13,6 +13,7 @@ import { Navigation } from './components/navigation/nav.component';
 import { IngredientsPage } from './pages/ingredients/ingredients';
 import { NewProductPage } from './pages/createNewProduct/newProduct';
 import { ProductsPage } from './pages/products/products';
+import { NewIngredientPage } from './pages/createNewIngredient/newIngredeint';
 
 // Components
 
@@ -27,7 +28,7 @@ import { AuthService } from './services/auth.service';
   standalone: true,
   imports: [RouterOutlet,  PageNotFoundComponent,
   RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule, MatIconModule, //import any components
-  HomePage, IngredientsPage, NewProductPage, ProductsPage,  //import pages
+  HomePage, IngredientsPage, NewProductPage, ProductsPage, NewIngredientPage,  //import pages
   Navigation, LoginComponent//import components
 ], 
   templateUrl: './app.component.html',

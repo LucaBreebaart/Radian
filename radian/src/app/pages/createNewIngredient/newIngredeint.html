@@ -1,0 +1,65 @@
+<body class="body" style="background-color: var(--grey);">
+
+    <div class="container">
+        <div class="body-container">
+            <div class="body-wrapper">
+
+                <h3>Create New Ingredeient</h3>
+
+                <form [formGroup]="newIngredientItem" (ngSubmit)="addNewIngredient()">
+
+                    <div class="input-card-wrapper">
+                        <div class="input-heading">
+                            <div>Name</div>
+                        </div>
+                        <div class="input-container">
+                            <input formControlName="name" class="input" placeholder="Please enter name" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="input-card-wrapper">
+                        <div class="input-heading">
+                            <div>Category</div>
+                        </div>
+                        <div class="input-container">
+                            <input formControlName="category" class="input" placeholder="Please enter category"
+                                type="text" />
+                        </div>
+                    </div>
+
+                    <div class="input-card-wrapper">
+                        <div class="input-heading">
+                            <div>Icon</div>
+                        </div>
+                        <div class="input-container">
+                            <input formControlName="icon" class="input" placeholder="Please enter icon" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="input-card-wrapper">
+                        <div class="input-heading">
+                            <div>Description</div>
+                        </div>
+                        <div class="input-container">
+                            <input formControlName="description" class="input" placeholder="Please enter description"
+                                type="text" />
+                        </div>
+                    </div>
+
+                    <div class="input-card-wrapper">
+                        <div class="input-heading">
+                            <div>Stock</div>
+                        </div>
+                        <div class="input-container">
+                            <input formControlName="stock" class="input" placeholder="Please enter stock"
+                                type="number" />
+                        </div>
+                    </div>
+                  
+                    <input type="submit" value="Create New +" class="primary-btn w-inline-block" [disabled]="newIngredientItem.status == 'INVALID'" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

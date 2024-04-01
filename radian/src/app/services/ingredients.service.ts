@@ -9,7 +9,7 @@ import { Ingredients } from '../models/ingredients.model';
 
 export class IngredientsService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private baseUrl = "http://localhost:3000/ingredients"
 
@@ -17,8 +17,13 @@ export class IngredientsService {
     return this.http.get<Ingredients[]>(this.baseUrl)
   }
 
-  updateInventoryAmount(id: number, newAmount:number): Observable<Ingredients> {
-    return this.http.put<Ingredients>(`${this.baseUrl}/${id}`, {amount: newAmount})
+  updateInventoryAmount(id: number, newAmount: number): Observable<Ingredients> {
+    return this.http.put<Ingredients>(`${this.baseUrl}/${id}`, { amount: newAmount })
   }
+
+  addIngredient(ingredientData: any): Observable<any> {
+    return this.http.post<any>(this.baseUrl, ingredientData);
+  }
+
 
 }
