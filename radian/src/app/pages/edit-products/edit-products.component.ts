@@ -53,20 +53,19 @@ export class EditProductsComponent implements OnInit {
       });
     });
   }
-  // ngOnInit(): void {
-  //   this.route.params.subscribe(params =>{
-  //     const id = +params['id']
-  //     this.recipeService.getAllRecipes().subscribe((recipe: Recipe) =>{
-  //       this.products = recipe
 
-  //       this.editProductForm.patchValue({
-  //         name: recipe.name,
-  //         img: recipe.img,
-  //         price: recipe.price,
-  //         description: recipe.description,
-  //         amountCrafted: recipe.amountCrafted
-  //       })
-  //     })
-  //   })
-  // }
+  updateRecipe(): void {
+    if (this.products && this.products.id) {
+      this.recipeService.updateRecipeById(this.products.id, this.editProductForm.value)
+      .subscribe({
+          next: (updatedRecipe) => {
+            console.log("Recipe updated successfully:", updatedRecipe);
+        }, 
+        error: (error) =>{
+          console.error("Error updating recipe:", error)
+        }
+      })
+      
+    }
+  }
 }

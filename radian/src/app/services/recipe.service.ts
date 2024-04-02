@@ -21,4 +21,9 @@ export class RecipeService {
     const url = `${this.baseUrl}/${id}`
     return this.http.get<Recipe>(url)
   }
+
+  updateRecipeById(id: number, updatedRecipe: Recipe): Observable<any> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.put(url, updatedRecipe)
+  }
 }
