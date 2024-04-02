@@ -1,6 +1,6 @@
 <!--  -->
 <div class="card-content">
-    <!-- @for(recipe of recipes; track $index){ -->
+
         <div class="content"><img
                 src={{recipes.img}} loading="lazy"
                 alt="" class="content-image">
@@ -16,7 +16,7 @@
             <div>{{recipes.description | slice:0:50}}</div>
         </div>
         
-        <div class="content _4">
+        <div class="content _4" (click)="navToEditProduct(recipes.id!)">
             <div class="w-embed"><svg width="40" height="40" viewbox="0 0 20 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -24,7 +24,7 @@
                         fill="#8A8A8A"></path>
                 </svg></div>
         </div>
-    <!-- } -->
+
 </div>
 <!-- ------------------------------- ONLY FOR TESTING ---------------------------------- -->
 <!-- <div>

@@ -1,0 +1,54 @@
+<p>edit-products works!</p>
+<div class="container">
+    <div class="body-container">
+        <div class="body-wrapper">
+            <h3>Edit Product</h3>
+            <form [formGroup]="editProductForm">
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Name</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="name" class="input" type="text"  />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Category</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="price" class="input" type="text"  />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Icon</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="img" class="input" type="text"  />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Description</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="description" class="input" type="text" />
+                    </div>
+                </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Stock</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="amountCrafted" class="input" type="number" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

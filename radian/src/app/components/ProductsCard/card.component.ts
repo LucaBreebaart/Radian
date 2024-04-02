@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { RecipeService } from '../../services/recipe.service';
 import { Recipe } from '../../models/recipe.model';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'productsCard',
@@ -12,7 +14,13 @@ import { Recipe } from '../../models/recipe.model';
 })
 export class productsCard {
 
-  constructor (private service: RecipeService) {}
+  // constructor (private service: RecipeService) {}
+
+  constructor(private router: Router) {}
+
+  navToEditProduct(id: number) {
+    this.router.navigate(['editproduct', id]);
+  }
 
   @Input() recipes: Recipe = {
 
@@ -24,6 +32,9 @@ export class productsCard {
     amountCrafted: 0,
   
   }
+
+
+}
 
 // Get all recipes
   // recipes: Recipe[] = []
@@ -38,9 +49,6 @@ export class productsCard {
   //     console.log(data)
   //   })
   // }
-}
-
-
 
 
 //   selectedRecipe?: Recipe

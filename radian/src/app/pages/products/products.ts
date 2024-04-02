@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductsPage {
 
-  constructor(private service: RecipeService) {}
+  constructor(private service: RecipeService) { }
 
   recipeList: Recipe[] = [
     {
