@@ -35,7 +35,7 @@ import { AuthService } from './services/auth.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Class-Inventory';
+  title = 'Radian';
 
   constructor(private service: AuthService, private router: Router) { }
 
