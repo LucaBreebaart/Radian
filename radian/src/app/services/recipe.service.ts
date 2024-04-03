@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs';
 import { Recipe } from '../models/recipe.model';
+import { Ingredients } from '../models/ingredients.model';
+import { Products } from '../models/products.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +25,18 @@ export class RecipeService {
     return this.http.get<Recipe>(url)
   }
 
+  // getIngredientsByRecipeId(id: number): Observable<Ingredients[]> {
+  //   const url = `${this.baseUrl}/${id}/products`
+  //   return this.http.get<Products[]>(url).pipe(
+  //     map(products => products.map(product => product.ingredient))
+  //   )
+  // }
+
   updateRecipeById(id: number, updatedRecipe: Recipe): Observable<any> {
     const url = `${this.baseUrl}/${id}`
     return this.http.put(url, updatedRecipe)
   }
+
+
+
 }

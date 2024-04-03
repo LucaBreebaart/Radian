@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../models/recipe.model';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../../services/recipe.service';
 
@@ -13,8 +13,8 @@ import { RecipeService } from '../../services/recipe.service';
 })
 export class EditProductsComponent implements OnInit {
 
-  products: Recipe | undefined
-
+  recipe: Recipe | undefined
+  ingredientNames: string[] = []
   editProductForm: FormGroup
 
   constructor(
@@ -28,24 +28,38 @@ export class EditProductsComponent implements OnInit {
       price: [0, Validators.required],
       description: ['', Validators.required],
       amountCrafted: [0, Validators.required],
-      
+      products: this.formBuilder.array([])  
     })
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const id = +params['id'];
       this.recipeService.getRecipeById(id).subscribe(recipe => {
+        console.log('API Response:', recipe)
         if (recipe) {
-          this.products = recipe;
-  
+          this.recipe = recipe;
+          
+          // if (recipe.products) {
+          //   // this.patchProductsArray(recipe.products);
+          //   this.ingredientNames = this.getIngredientNames(recipe.products);
+          // }
+
           this.editProductForm.patchValue({
             name: recipe.name,
             img: recipe.img,
             price: recipe.price,
             description: recipe.description,
-            amountCrafted: recipe.amountCrafted
+            amountCrafted: recipe.amountCrafted,
+            products: recipe.products
           });
-          console.log('Recipe', recipe)
+
+          
+          // this.products.products = this.products.products?.map(product => product.ingredient)
+          // this.recipeService.getIngredientsByRecipeId(id).subscribe(ingredients => {
+          //   this.products.ingredients = ingredients;
+          // })
+
+          // console.log('Recipe', recipe.products)
         } else {
 
           console.error('Recipe not found');
@@ -54,9 +68,21 @@ export class EditProductsComponent implements OnInit {
     });
   }
 
+  // getIngredientNames(products: any[]): string[] {
+  //   return products.map(product => product.ingredients?.name)
+  // }
+
+  // patchProductsArray(products: any[]): void {
+  //   const productsFormArray = this.editProductForm.get('products') as FormArray;
+  //   productsFormArray.clear(); // Clear existing products
+  //   products.forEach(product => {
+  //     productsFormArray.push(this.formBuilder.control(product));
+  //   });
+  // }
+
   updateRecipe(): void {
-    if (this.products && this.products.id) {
-      this.recipeService.updateRecipeById(this.products.id, this.editProductForm.value)
+    if (this.recipe && this.recipe.id) {
+      this.recipeService.updateRecipeById(this.recipe.id, this.editProductForm.value)
       .subscribe({
           next: (updatedRecipe) => {
             console.log("Recipe updated successfully:", updatedRecipe);

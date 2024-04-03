@@ -15,10 +15,10 @@
 
                 <div class="input-card-wrapper">
                     <div class="input-heading">
-                        <div>Category</div>
+                        <div>Price</div>
                     </div>
                     <div class="input-container">
-                        <input formControlName="price" class="input" type="text"  />
+                        <input formControlName="price" class="input" type="number"  />
                     </div>
                 </div>
 
@@ -48,6 +48,16 @@
                         <input formControlName="amountCrafted" class="input" type="number" />
                     </div>
                 </div>
+
+                <div class="input-card-wrapper">
+                    <div class="input-heading">
+                        <div>Stock</div>
+                    </div>
+                    <div class="input-container">
+                        <input formControlName="products" class="input" type="text" />
+                    </div>
+                </div>
+
                 <div class="input-card-wrapper">
                     <button type="button" (click)="updateRecipe()">Update Recipe</button>
                 </div>
