@@ -30,7 +30,8 @@ export class IngredientsService {
   }
 
   updateIngredient(ingredient: Ingredients): Observable<any> {
-    const url = `${this.baseUrl}/ingredients/${ingredient.id}`;
+    const url = `${this.baseUrl}/${ingredient.id}`; // Remove '/ingredients' from the URL
     return this.http.put(url, ingredient);
   }
+  
 }

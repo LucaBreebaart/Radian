@@ -11,7 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminAuthGuard, AuthGuard } from './guards/auth.guard';
 import { NewIngredientPage } from './pages/createNewIngredient/newIngredeint';
 
-import { EditIngredientComponent } from './pages/editINgredient/editIngredient';
+import { EditIngredientComponent } from './pages/editIngredient/editIngredient';
 import { EditProductsComponent } from './pages/edit-products/edit-products.component';
 
 export const routes: Routes = [

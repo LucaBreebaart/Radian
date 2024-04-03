@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; // Import Router
 import { IngredientsService } from '../../services/ingredients.service';
 import { Ingredients } from '../../models/ingredients.model';
 
@@ -10,8 +10,6 @@ import { Ingredients } from '../../models/ingredients.model';
   standalone: true,
   imports: [
     ReactiveFormsModule
-    // NewProductPage,
-    //import components
   ],
   templateUrl: './editIngredient.html',
   styleUrls: ['./editIngredient.css', '../../app.component.css']
@@ -22,6 +20,7 @@ export class EditIngredientComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router, 
     private ingredientService: IngredientsService,
     private formBuilder: FormBuilder
   ) {
@@ -40,30 +39,39 @@ export class EditIngredientComponent implements OnInit {
       const id = +params['id'];
       this.ingredientService.getIngredient(id).subscribe(ingredient => {
         this.ingredient = ingredient;
-        // Populate form fields with existing data
-        this.editIngredientForm.patchValue({
-          name: ingredient.name,
-          sku: ingredient.sku,
-          category: ingredient.category,
-          icon: ingredient.icon,
-          description: ingredient.description,
-          stock: ingredient.stock
-        });
+        this.populateForm(); // Populate form with existing data
       });
     });
   }
 
+  populateForm(): void {
+    if (this.ingredient) {
+      this.editIngredientForm.patchValue({
+        name: this.ingredient.name,
+        sku: this.ingredient.sku,
+        category: this.ingredient.category,
+        icon: this.ingredient.icon,
+        description: this.ingredient.description,
+        stock: this.ingredient.stock
+      });
+    }
+  }
+
   updateIngredient(): void {
-    if (this.editIngredientForm.valid) {
-      const updatedIngredient = { ...this.editIngredientForm.value, id: this.ingredient?.id };
+    if (this.editIngredientForm.valid && this.ingredient) {
+      const updatedIngredient = { ...this.editIngredientForm.value, id: this.ingredient.id };
       this.ingredientService.updateIngredient(updatedIngredient).subscribe(
         () => {
-          // Handle success
+          this.router.navigate(['/ingredients']); 
         },
         error => {
-          // Handle error
+          console.error("Error updating ingredient:", error);
         }
       );
     }
+  }
+
+  cancelEdit(): void {
+    this.router.navigate(['/ingredients']);
   }
 }

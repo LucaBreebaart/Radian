@@ -17,7 +17,7 @@
                         <div>SKU</div>
                     </div>
                     <div class="input-container">
-                        <input formControlName="sku" class="input" type="text" [value]="ingredient?.sku" />
+                        <input class="input" type="text" [value]="ingredient?.sku" readonly />
                     </div>
                 </div>
 
@@ -57,8 +57,11 @@
                         <input formControlName="stock" class="input" type="number" [value]="ingredient?.stock" />
                     </div>
                 </div>
+                <div style="display: flex; gap: 20px;">
+                    <button type="button" class="primary-btn" style="background-color: brown;" (click)="cancelEdit()">Cancel</button>
 
-                
+                    <button type="submit" class="primary-btn">Save</button>
+                </div>
             </form>
         </div>
     </div>
