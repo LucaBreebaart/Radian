@@ -56,7 +56,6 @@ export class AuthService {
       this.isLoggedIn.next(false)
       return false
     }
-
   }
 
   // Two funtions to: check if a user is logged in and authenticated

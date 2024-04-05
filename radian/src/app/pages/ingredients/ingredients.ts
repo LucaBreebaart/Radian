@@ -4,11 +4,14 @@ import { CommonModule } from '@angular/common';
 import { Ingredients } from '../../models/ingredients.model';
 import { IngredientsService } from '../../services/ingredients.service';
 
+// import { Navigation } from '../../components/navigation/nav.component';
+
 @Component({
   selector: 'IngredientsPage',
   standalone: true,
   imports: [
-    IngredientsComponent, CommonModule
+    IngredientsComponent, CommonModule, 
+    // Navigation
   ],
   templateUrl: './ingredients.html',
   styleUrls: ['./ingredients.css', '../../app.component.css']

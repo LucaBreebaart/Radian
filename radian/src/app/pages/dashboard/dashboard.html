@@ -1,72 +1,39 @@
-<body class="body" style="background-color: var(--grey);">
+<div class="container">
+    <div class="body-container">
+        <div class="body-wrapper">
+            <h3>Ingredients Inventory</h3>
 
-    <div class="container">
-
-        <div class="body-container">
-            <div class="body-wrapper">
-                <h3>Ingredients Inventory</h3>
-
-                <div class="card-container">
-                    <div class="card-wrapper">
-                        <div class="card-header">
-                            <div class="primary-btn w-inline-block">Warehouse Name</div>
+            <div class="card-container">
+                <div class="card-wrapper" *ngFor="let warehouse of warehouses">
+                    <div class="card-header">
+                        <div class="primary-btn w-inline-block">{{ warehouse.name }}</div>
+                    </div>
+                    <div class="card-headings">
+                        <div class="heading-container">
+                            <div></div> <!-- Empty space -->
                         </div>
-                        <div class="card-headings">
-                            <div class="heading-container">
-                                <div></div>
-                                <!-- leve empty -->
-                            </div>
-                            <div class="heading-container _2">
-                                <div>Stock</div>
-                            </div>
-                            <div class="heading-container _2">
-                                <div>SKU</div>
-                            </div>
+                        <div class="heading-container _2">
+                            <div>Stock</div>
+                        </div>
+                        <div class="heading-container _2">
+                            <div>SKU</div>
                         </div>
                     </div>
-                    <div class="card-wrapper">
-                        <div class="card-header">
-                            <div class="primary-btn w-inline-block">Warehouse Name</div>
-                        </div>
-                        <div class="card-headings">
+                    <!-- <div class="ingredient-list">
+                        <div class="ingredient-item" *ngFor="let ingredient of warehouse.ingredients">
                             <div class="heading-container">
-                                <div></div>
-                                <!-- leve empty -->
+                                <div>{{ ingredient.name }}</div>
                             </div>
                             <div class="heading-container _2">
-                                <div>Stock</div>
+                                <div>{{ ingredient.stock }}</div>
                             </div>
                             <div class="heading-container _2">
-                                <div>SKU</div>
+                                <div>{{ ingredient.sku }}</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="card-header">
-                            <div class="primary-btn w-inline-block">Warehouse Name</div>
-                        </div>
-                        <div class="card-headings">
-                            <div class="heading-container">
-                                <div></div>
-                                <!-- leve empty -->
-                            </div>
-                            <div class="heading-container _2">
-                                <div>Stock</div>
-                            </div>
-                            <div class="heading-container _2">
-                                <div>SKU</div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
-
             </div>
         </div>
-
     </div>
-
-    <Navigation>
-
-    </Navigation>
-
-</body>
+</div>

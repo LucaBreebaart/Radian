@@ -10,7 +10,7 @@ import { IngredientsPage } from './pages/ingredients/ingredients';
 import { LoginComponent } from './components/login/login.component';
 import { AdminAuthGuard, AuthGuard } from './guards/auth.guard';
 import { NewIngredientPage } from './pages/createNewIngredient/newIngredeint';
-import { dashboardPage } from './pages/dashboard/dashboard';
+import { DashboardComponent } from './pages/dashboard/dashboard';
 
 
 import { EditIngredientComponent } from './pages/editIngredient/editIngredient';
@@ -20,7 +20,7 @@ export const routes: Routes = [
 
   { path: '', component: ProductsPage },
   { path: 'newProduct', component: NewProductPage },
-  { path: 'dashboard', component: dashboardPage },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'ingredients', component: IngredientsPage },
   { path: 'newIngredient', component: NewIngredientPage },
   { path: 'home', component: HomePage, canActivate: [AuthGuard] },

@@ -4,10 +4,15 @@
     align-items: center;
     height: 100vh;
     background-color: #f9f9f9;
+    position: relative;
+    z-index: 100;
+    padding-left: 10%;
+    padding-right: 10%;
+    gap: 100px;
 }
 
 .login-content {
-    width: 500px;
+    width: 100%;
 }
 
 .login-content h2 {
