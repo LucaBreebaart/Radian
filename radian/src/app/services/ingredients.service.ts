@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ingredients } from '../models/ingredients.model';
-import { Warehouse } from '../models/warehouse.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +34,4 @@ export class IngredientsService {
     return this.http.put(url, ingredient);
   }
 
-  getAllWarehousesWithIngredients(): Observable<Warehouse[]> {
-    return this.http.get<Warehouse[]>(`${this.baseUrl}/warehouses`);
-  }
-  
 }
