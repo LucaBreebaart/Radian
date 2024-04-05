@@ -7,62 +7,37 @@
                 <h3>Ingredients Inventory</h3>
 
                 <div class="card-container">
-                    <div class="card-wrapper">
+                    <div class="card-wrapper" *ngFor="let location of ['durban', 'pretoria', 'capeTown']">
                         <div class="card-header">
-                            <div class="primary-btn w-inline-block">Warehouse Name</div>
+                            <div class="primary-btn w-inline-block">{{ location }}</div>
                         </div>
-                        <div class="card-headings">
-                            <div class="heading-container">
-                                <div></div>
-                                <!-- leve empty -->
-                            </div>
-                            <div class="heading-container _2">
-                                <div>Stock</div>
-                            </div>
-                            <div class="heading-container _2">
-                                <div>SKU</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="card-header">
-                            <div class="primary-btn w-inline-block">Warehouse Name</div>
-                        </div>
-                        <div class="card-headings">
-                            <div class="heading-container">
-                                <div></div>
-                                <!-- leve empty -->
-                            </div>
-                            <div class="heading-container _2">
-                                <div>Stock</div>
-                            </div>
-                            <div class="heading-container _2">
-                                <div>SKU</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="card-header">
-                            <div class="primary-btn w-inline-block">Warehouse Name</div>
-                        </div>
-                        <div class="card-headings">
-                            <div class="heading-container">
-                                <div></div>
-                                <!-- leve empty -->
-                            </div>
-                            <div class="heading-container _2">
-                                <div>Stock</div>
-                            </div>
-                            <div class="heading-container _2">
-                                <div>SKU</div>
-                            </div>
+
+                        <div class="card-content" *ngFor="let ingredient of ingredientsData[location]">
+                            
+                                <div class="content"><img src="{{ ingredient.icon }}" loading="lazy" alt=""
+                                        class="content-image">
+                                    <div style="margin-left: 20px;">{{ingredient.name}}
+                                    </div>
+                                </div>
+                                <div class="content _2">
+                                    <div>{{ ingredient[location] }}</div>
+                                </div>
+                                <div class="content _2">
+                                    <div>{{ ingredient.sku }}</div>
+                                </div>
+                                <div class="content _2">
+                                    <div></div>
+                                </div>
+                                <div class="content _2">
+                                    <div></div>
+
+                                </div>
+                            
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 
     <Navigation>

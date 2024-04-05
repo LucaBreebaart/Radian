@@ -10,7 +10,6 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
   
-
   // influeces our behaviour
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
@@ -33,8 +32,6 @@ export class AuthService {
         }
       })
     )
-
-
   }
 
   // Logout funtion

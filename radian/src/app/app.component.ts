@@ -60,5 +60,9 @@ export class AppComponent {
     this.service.logout()
     this.router.navigateByUrl("/login")
   }
+  
+  // ------------------------------------------------------------------------
+  // slected location:
+  
 }
 
