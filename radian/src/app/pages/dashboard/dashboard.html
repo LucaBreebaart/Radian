@@ -12,27 +12,34 @@
                             <div class="primary-btn w-inline-block">{{ location }}</div>
                         </div>
 
-                        <div class="card-content" *ngFor="let ingredient of ingredientsData[location]">
-                            
-                                <div class="content"><img src="{{ ingredient.icon }}" loading="lazy" alt=""
-                                        class="content-image">
-                                    <div style="margin-left: 20px;">{{ingredient.name}}
-                                    </div>
-                                </div>
-                                <div class="content _2">
-                                    <div>{{ ingredient[location] }}</div>
-                                </div>
-                                <div class="content _2">
-                                    <div>{{ ingredient.sku }}</div>
-                                </div>
-                                <div class="content _2">
-                                    <div></div>
-                                </div>
-                                <div class="content _2">
-                                    <div></div>
+                        <!-- <div class="card-headings">
+                            <div class="content">
+                                <div>Name</div>
+                            </div>
+                            <div class="content_2">
+                                <div>Stock</div>
+                            </div>
+                            <div class="content_2">
+                                <div>Sku</div>
+                            </div>
+                        </div> -->
 
+                        <div class="card-content" *ngFor="let ingredient of ingredientsData[location]">
+
+                            <div class="content"><img src="{{ ingredient.icon }}" loading="lazy" alt=""
+                                    class="content-image">
+                                <div style="margin-left: 20px;">{{ingredient.name}}
                                 </div>
-                            
+                            </div>
+                            <div class="content_2">
+                                <div>{{ ingredient[location] }}</div>
+                            </div>
+                            <div class="content_2">
+                                <div>{{ ingredient.sku }}</div>
+                            </div>
+                            <div class="content_2">
+
+                            </div>
                         </div>
                     </div>
                 </div>

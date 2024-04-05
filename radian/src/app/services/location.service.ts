@@ -22,5 +22,5 @@ export class LocationService {
 
   getSelectedLocation(): string {
     return this.selectedLocation;
-  }
+  } 
 }
