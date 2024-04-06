@@ -34,4 +34,8 @@ export class IngredientsService {
     return this.http.put(url, ingredient);
   }
 
+  getIngredientsByLocation(location: string): Observable<Ingredients[]> {
+    return this.http.get<Ingredients[]>(`http://localhost:3000/ingredients/${location}`);
+  }
+
 }
