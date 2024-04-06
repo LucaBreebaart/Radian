@@ -37,6 +37,9 @@ export class RecipeService {
     return this.http.put(url, updatedRecipe)
   }
 
-
+  craftRecipe(recipe: Recipe): Observable<Recipe> {
+    var craftUrl = this.baseUrl + "/" + recipe.id + "/craft"
+    return this.http.put<Recipe>(craftUrl, {amount: recipe.amountCrafted +1, products: recipe.products})
+  }
 
 }

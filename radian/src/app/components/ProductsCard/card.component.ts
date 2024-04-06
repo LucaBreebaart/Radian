@@ -16,7 +16,10 @@ export class productsCard {
 
   // constructor (private service: RecipeService) {}
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private service: RecipeService
+  ) {}
 
   navToEditProduct(id: number) {
     this.router.navigate(['editproduct', id]);
@@ -32,23 +35,56 @@ export class productsCard {
     amountCrafted: 0,
   
   }
+  recipe: Recipe[] = []
 
+  ngOnInit(){
+    this.getRecipes()
+  }
 
+  getRecipes(){
+    this.service.getAllRecipes().subscribe((data) => {
+      this.recipe = data
+      console.log("This is the data youre looking for ", data)
+    })
+  }
+
+  selectedRecipe?: Recipe
+
+  setSelectedRecipe(recipe: Recipe) {
+    
+    this.selectedRecipe = recipe
+
+    console.log("log", this.selectedRecipe)
+
+    this.checkCraftability()
+  }
+
+  checkCraftability() {
+    this.selectedRecipe!.isCraftable = true
+
+    this.selectedRecipe!.products?.forEach((product) => {
+
+      if (product.amount > product.ingredient.stock) {
+        this.selectedRecipe!.isCraftable = false
+        console.log('Not Craftable' + product.ingredient.stock )
+        return
+      } else {
+        console.log(product.ingredient)
+      }
+    })
+  }
+
+  craftNewRecipe(recipe: Recipe) {
+    if (this.selectedRecipe!.id == recipe.id) {
+      this.service.craftRecipe(recipe).subscribe((data) => {
+        this.selectedRecipe! = data
+      })
+    }
+  }
 }
 
 // Get all recipes
-  // recipes: Recipe[] = []
-
-  // ngOnInit(){
-  //   this.getRecipes()
-  // }
-
-  // getRecipes(){
-  //   this.service.getAllRecipes().subscribe((data) => {
-  //     this.recipes = data
-  //     console.log(data)
-  //   })
-  // }
+  
 
 
 //   selectedRecipe?: Recipe

@@ -1,6 +1,6 @@
 <!--  -->
 <div class="card-content">
-
+        <input type="checkbox" (change)="setSelectedRecipe(recipes)">
         <div class="content"><img
                 src={{recipes.img}} loading="lazy"
                 alt="" class="content-image">
@@ -15,7 +15,9 @@
         <div class="content _3">
             <div>{{recipes.description | slice:0:50}}</div>
         </div>
-        
+        <div class="content _2">
+            <button class="primary-btn w-inline-block" (click)="setSelectedRecipe(recipes)"> Craft </button>
+        </div>
         <div class="content _4" (click)="navToEditProduct(recipes.id!)">
             <div class="w-embed"><svg width="40" height="40" viewbox="0 0 20 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +28,7 @@
         </div>
 
 </div>
-<!-- ------------------------------- ONLY FOR TESTING ---------------------------------- -->
+<!-- ------------------------------- ONLY FOR TESTING ------------------------------------- -->
 <!-- <div>
     <div>
         @for(recipe of recipes; track $index){

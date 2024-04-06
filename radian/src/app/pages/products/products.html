@@ -6,7 +6,7 @@
                 <h3>Product Inventory</h3>
                 <div class="card-wrapper">
                     <div class="card-header">
-                        <a href="#" class="primary-btn w-inline-block">
+                        <a href="/newProduct" class="primary-btn w-inline-block">
                             <div>Create New +</div>
                         </a>
                     </div>
@@ -23,8 +23,11 @@
                         <div class="heading-container _3">
                             <div>Description</div>
                         </div>
+                        <div class="heading-container _2">
+                            <div>Craft</div>
+                        </div>
                         <div class="heading-container _4">
-                            <div></div>
+                            <div>Edit Product</div>
                         </div>
                     </div>
                     <productsCard *ngFor="let recipes of recipeList" [recipes]="recipes" class="productscard"></productsCard>

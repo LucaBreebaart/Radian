@@ -49,3 +49,19 @@
 .content-image {
     width: 50px;
 }
+
+
+button {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    background-color: var(--text-black);
+    color: var(--light-grey);
+    border-radius: 10px;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 30px;
+    text-decoration: none;
+    display: flex;
+    max-width: 250px;
+}
