@@ -84,7 +84,6 @@ export class EditIngredientComponent implements OnInit {
     }
   }
 
-
   cancelEdit(): void {
     this.router.navigate(['/ingredients']);
   }
