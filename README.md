@@ -32,8 +32,21 @@ Radian is a comprehensive application built with Angular for managing ingredient
 
 ## Table of Contents
 
+## Table of Contents
+
 - [Built With](#built-with)
 - [Installation](#installation-backend)
+- [Installation](#installation-frontend)
+- [Features and Functionality](#features-and-functionality)
+- [Concept Process](#concept-process)
+- [Development Process](#development-process)
+- [Highlights](#highlights)
+- [Challenges](#challenges)
+- [Future Implementation](#future-implementation)
+- [Final Outcome](#final-outcome)
+- [Contributing](#contributing)
+- [Authors](#authors)
+- [License](#license)
 
 ## Built With
 * [![Angular][angular]][angular-url]

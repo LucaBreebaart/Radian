@@ -68,7 +68,8 @@ export class NewIngredientPage {
       description: this.newIngredientItem.value.description!,
       currentLocation: this.selectedLocation, 
       stock: this.newIngredientItem.value.stock!, 
-      icon: this.newIngredientItem.value.icon!
+      icon: this.newIngredientItem.value.icon!,
+      sku: sku
     };
     console.log(newIngredientData)
 
