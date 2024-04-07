@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IngredientsService } from '../../services/ingredients.service';
 import { Ingredients } from '../../models/ingredients.model';
 import { Router } from '@angular/router';
+import { LocationService } from '../../services/location.service';
 
 @Component({
   selector: 'app-ingredients',
@@ -13,23 +14,15 @@ import { Router } from '@angular/router';
 })
 export class IngredientsComponent {
 
-  // constructor(private service: IngredientsService) {}
+  @Input() item!: Ingredients; // Remove the default value
 
-  constructor(private router: Router) { }
+  selectedLocation!: keyof Ingredients; // Explicitly declare the type
+
+  constructor(private router: Router, private locationService: LocationService) { 
+    this.selectedLocation = this.locationService.getSelectedLocation() as keyof Ingredients; // Cast as keyof Ingredients
+  }
 
   navigateToEditIngredient(id: number) {
     this.router.navigate(['/edit-ingredient', id]);
-  }
-
-  @Input() item: Ingredients = {
-    id: 0,
-    name: "Dummy",
-    sku: "Dummy",
-    category: "Dummy",
-    icon: "assets/python.png",
-    description: "Dummy",
-    durban: 0,
-    pretoria: 0,
-    capeTown: 0
   }
 }

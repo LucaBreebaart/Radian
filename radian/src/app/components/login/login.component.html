@@ -1,13 +1,22 @@
+<!-- login.component.html -->
 <div class="login">
     <div class="login-content">
         <h2>Login</h2>
         <br>
         <form [formGroup]="login" (ngSubmit)="onSubmit()">
             <label for="email">Email</label>
-            <input id="email" type="email" formControlName="email" placeholder="Your email">
+            <input id="email" type="email" formControlName="email" placeholder="Your email" required>
 
             <label for="password">Password</label>
-            <input id="password" type="password" formControlName="password" placeholder="Your password">
+            <input id="password" type="password" formControlName="password" placeholder="Your password" required>
+
+            <re-captcha
+                #captchaRef="reCaptcha"
+                [siteKey]="'6LcKJ7MpAAAAAOUUKJTUc8b5cb2HFGi7h7VUEHVQ'"
+                (resolved)="resolved($event)">
+            </re-captcha>
+
+            <br>
 
             <button class="primary-btn" type="submit">Login</button>
         </form>

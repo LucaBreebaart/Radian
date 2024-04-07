@@ -4,6 +4,8 @@
     align-items: center;
     height: 100vh;
     background-color: #f9f9f9;
+    position: relative;
+    z-index: 100;
 }
 
 .login-content {
