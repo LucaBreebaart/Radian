@@ -310,8 +310,17 @@ distributed under the MIT License
 <div style="display: flex; justify-content: space-between;">
   <div style="text-align: center;">
     <a href="https://github.com/LucaBreebaart">
-
+      <img src="https://avatars.githubusercontent.com/u/146751594?v=4" alt="Luca Breebaart" width="100px">
     </a>
+  </br>
+    <sub>Luca Breebaart</sub>
+  </div>
+  <div style="text-align: center;">
+    <a href="https://github.com/Bladeyboy54">
+      <img src="https://avatars.githubusercontent.com/u/109971233?v=4" alt="Bladen Lehnberg" width="100px">
+    </a>
+  </br>
+    <sub>Bladen Lehnberg</sub>
   </div>
 </div>
 
