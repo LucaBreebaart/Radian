@@ -25,13 +25,17 @@ export class IngredientsService {
     return this.http.post<any>(this.baseUrl, ingredientData);
   }
 
-  getIngredient(id: number): Observable<Ingredients> {
-    return this.http.get<Ingredients>(`${this.baseUrl}/${id}`);
-  }
+  // getIngredient(id: number): Observable<Ingredients> {
+  //   return this.http.get<Ingredients>(`${this.baseUrl}/${id}`);
+  // }
 
   updateIngredient(ingredient: Ingredients): Observable<any> {
-    const url = `${this.baseUrl}/${ingredient.id}`; 
+    const url = `${this.baseUrl}/byId/${ingredient.id}`;
     return this.http.put(url, ingredient);
+  }
+  
+  getIngredient(id: number): Observable<Ingredients> {
+    return this.http.get<Ingredients>(`${this.baseUrl}/byId/${id}`);
   }
 
   getIngredientsByLocation(location: string): Observable<Ingredients[]> {
