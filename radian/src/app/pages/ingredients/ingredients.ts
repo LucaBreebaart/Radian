@@ -20,33 +20,33 @@ export class IngredientsPage {
   // an example of an array, but specifying that the objects should follow the inventory model
   // the inventory model - dummy data
   inventoryList: Ingredients[] = [
-    {
-      id: 1,
-      name: "HTML",
-      sku: "html",
-      category: "markup",
-      icon: "",
-      description: "Building blocks of the web",
-      stock: 4
-    },
-    {
-      id: 3,
-      name: "CSS",
-      sku: "css1",
-      category: "styling",
-      icon: "",
-      description: "Makes the web pretty",
-      stock: 10
-    },
-    {
-      id: 3,
-      name: "JavaScript",
-      sku: "js01",
-      category: "programming",
-      icon: "",
-      description: "Makes the web smart",
-      stock: 13
-    }
+    // {
+    //   id: 1,
+    //   name: "HTML",
+    //   sku: "html",
+    //   category: "markup",
+    //   icon: "",
+    //   description: "Building blocks of the web",
+    //   stock: 4
+    // },
+    // {
+    //   id: 3,
+    //   name: "CSS",
+    //   sku: "css1",
+    //   category: "styling",
+    //   icon: "",
+    //   description: "Makes the web pretty",
+    //   stock: 10
+    // },
+    // {
+    //   id: 3,
+    //   name: "JavaScript",
+    //   sku: "js01",
+    //   category: "programming",
+    //   icon: "",
+    //   description: "Makes the web smart",
+    //   stock: 13
+    // }
   ];
   ngOnInit() {
     this.service.getAllInventory().subscribe((data) => {

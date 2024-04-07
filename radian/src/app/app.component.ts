@@ -22,26 +22,29 @@ import { LoginComponent } from './components/login/login.component';
 //Other
 
 import { AuthService } from './services/auth.service';
+import { LocationService } from './services/location.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,  PageNotFoundComponent,
-  RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule, MatIconModule, //import any components
-  HomePage, IngredientsPage, NewProductPage, ProductsPage, NewIngredientPage,  //import pages
-  Navigation, LoginComponent//import components
-], 
+  imports: [RouterOutlet, PageNotFoundComponent,
+    RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule, MatIconModule, //import any components
+    HomePage, IngredientsPage, NewProductPage, ProductsPage, NewIngredientPage,  //import pages
+    Navigation, LoginComponent//import components
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Radian';
-
-  constructor(private service: AuthService, private router: Router) { }
-
   public isLoggedIn = true
-
   public isAdmin = true
+  
+  selectedLocation: string;
+
+  constructor(private service: AuthService, private locationService: LocationService, private router: Router) { 
+    this.selectedLocation = this.locationService.getSelectedLocation();
+  }
 
   ngOnInit() {
     this.checkLoginState()
@@ -60,9 +63,13 @@ export class AppComponent {
     this.service.logout()
     this.router.navigateByUrl("/login")
   }
-  
+
   // ------------------------------------------------------------------------
   // slected location:
-  
+  onLocationSelected(selectedLocation: string) {
+    this.selectedLocation = selectedLocation;
+    this.locationService.setSelectedLocation(selectedLocation);
+  }
+
 }
 
