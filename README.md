@@ -97,21 +97,21 @@ Radian provides a robust platform for managing ingredient inventory across multi
 
 ### Product Crafting: 
 
-Radian extends its functionality beyond ingredient management by enabling users to craft products using the created recipes. This feature enhances efficiency in production processes and ensures consistency in product quality.
+Radian extends its functionality beyond ingredient management by enabling users to craft products using the created recipes. From this users now have the ability to create Products from their ingredients which can later be implemented into the online store.
 
 
 ### Admin Rights:
 
-Radian incorporates robust admin rights management functionality to ensure effective platform governance and security. Leveraging Angular's routing and authentication mechanisms, the application employs a dedicated AuthGuard service to restrict access to certain routes based on user privileges.
+Radian incorporates admin rights management functionality to ensure effective platform security. Leveraging Angular's routing and authentication mechanisms, the application employs a dedicated AuthGuard service to restrict access to certain routes based on user privileges.
 
 ### Security
 
-Radian prioritizes user security by implementing robust password hashing techniques and integrating Google reCAPTCHA for enhanced authentication.
+Radian prioritizes user security by implementing password hashing techniques and integrating Google reCAPTCHA for extra authentication.
 
 Password Hashing:
 
-- Upon user registration or login, Radian securely hashes passwords using industry-standard algorithms, such as bcrypt, to prevent unauthorized access and safeguard user credentials.
-The AuthService ensures that passwords are securely stored and transmitted, mitigating the risk of data breaches and unauthorized account access.
+- Upon user registration or login, Radian securely hashes passwords, to prevent unauthorized access and safeguard user credentials.
+The AuthService ensures that passwords are securely stored and transmitted.
 
 reCAPTCHA Integration:
 
@@ -143,6 +143,13 @@ The `Development Process` is the technical implementations and functionality don
 2. Component Development
 - Dashboard Component: Created the dashboard component to display ingredient inventory across multiple locations.
 - Card Component: Developed the card component to represent individual ingredients in the inventory.
+```sh
+            <re-captcha
+                #captchaRef="reCaptcha"
+                [siteKey]="'****'"
+                (resolved)="resolved($event)">
+            </re-captcha>
+   ```
 - Edit Ingredient Component: Implemented the edit ingredient component to allow users to modify ingredient details.
 - Login Component: Created the login component for user authentication.
 - Navigation Component: Developed the navigation component for easy navigation within the application.
@@ -150,38 +157,104 @@ The `Development Process` is the technical implementations and functionality don
 - HTTP Client Service: Implemented HTTP client service to communicate with the backend server for fetching and updating data.
 - Authentication Service: Developed an authentication service to handle user login/logout functionality and user authentication.
 - Ingredients Service: Created a service to manage ingredient-related operations such as fetching, updating, and adding ingredients.
-- location service
+- Location service: To get the current ingredients stock according to the selected location
+```sh
+export class LocationService {
+  private selectedLocation: string = '';
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.selectedLocation = sessionStorage.getItem('selectedLocation') || '';
+    }
+  }
+
+  setSelectedLocation(location: string) {
+    this.selectedLocation = location;
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.setItem('selectedLocation', location);
+    }
+  }
+
+  getSelectedLocation(): string {
+    return this.selectedLocation;
+  } 
+}
+   ```
+<br><br/>
+
+![Image Description](radian/assets/ERD.png)
+
+
 4. Backend Integration
-- API Integration: Integrated with backend APIs to fetch and update ingredient data.
+- API Integration: Integrated with backend APIs to fetch and update database data.
+```sh
+const AppDataSource = new DataSource(
+    {
+        "type": "postgres",
+        "host": "localhost",
+        "port": 5432,
+        "username": "postgres",
+        "password": password,
+        "database": "radian_db",
+        "entities": ["src/entity/*.ts"],
+        "logging": true,
+        "synchronize": true
+    }
+)
+   ```
 - User Authentication: Implemented authentication mechanisms to secure user login and registration.
 - Authorization: Implemented role-based authorization to control access to admin functionalities.
 5. Features and Functionality
 - Inventory Management: Developed functionality to manage ingredient inventory across multiple locations.
 - User Authentication: Implemented secure user authentication with hashed passwords and reCAPTCHA integration.
 - Admin Rights Management: Provided administrators with the ability to manage the platform effectively, controlling user access and monitoring content.
-- Dynamic Routing: Configured dynamic routing to navigate between different components based on user interactions.
-- Responsive UI: Ensured the application's UI is responsive and optimized for various devices and screen sizes.
+```sh
+export const routes: Routes = [
+
+  { path: '', component: ProductsPage },
+  { path: 'newProduct', component: NewProductPage },
+  { path: 'dashboard', component: DashboardPage },
+  { path: 'ingredients', component: IngredientsPage },
+  { path: 'newIngredient', component: NewIngredientPage },
+  { path: 'home', component: HomePage, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+
+  { path: 'edit-ingredient/:id', component: EditIngredientComponent },
+  { path: 'editproduct/:id', component: EditProductsComponent},
+
+  { path: '', redirectTo: 'inventory', pathMatch: 'full' },
+  { path: "**", component: PageNotFoundComponent }
+
+];
+   ```
 - Error Handling: Implemented error handling mechanisms to provide meaningful error messages to users in case of failures.
 
 <br>
 
-![Image Description](radian/assets/ERD.png)
 
-#### Highlights
-<!-- stipulated the highlight you experienced with the project -->
-* Sunshine.
-* Rainbows.
+### Highlights
 
-#### Challenges
-<!-- stipulated the challenges you faced with the project and why you think you faced it or how you think you'll solve it (if not solved) -->
-* Bugs.
-* Bugs.
+One of the key highlights of the project was successfully implementing the inventory management system across multiple locations, being able to add, update and edit. The implementation of the crafting funtionality is also a big highlight, although it doesnt work with the inventory of the locations.
 
-### Future Implementation
+### Challenges
+
+Integration of Products and Recipes with Different Locations: Integrating products and recipes with multiple locations posed a significant challenge. Managing inventory and recipes across different locations required careful consideration of data structures, database schema, and API endpoints.
+
+## Future Implementation
 <!-- stipulate functionality and improvements that can be implemented in the future. -->
+### Crafting Functionality with Different Locations:
 
-* Future 1.
-* Future 2.
+One of the key areas for future improvement is enhancing the crafting functionality to work with different locations. This involves enabling users to create recipes using ingredients from specific locations and managing the crafting process efficiently. 
+
+### Integration with Spirio for Product Sales:
+
+Integrating the project with Spirio, a platform for selling products, presents an exciting opportunity for expanding the reach and commercialization of the application. By connecting Radian with Spirio, users can showcase their crafted products, manage inventory, process orders, and facilitate sales transactions seamlessly.
+
+### Other:
+- Enhanced Reporting and Analytics
+- User Feedback and Collaboration Features
+- Mobile Optimization and Accessibility
+
 
 ## Final Outcome
 
