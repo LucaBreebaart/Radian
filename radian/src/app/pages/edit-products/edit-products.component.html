@@ -58,8 +58,9 @@
                     </div>
                 </div>
 
-                <div class="input-card-wrapper">
-                    <button type="button" (click)="updateRecipe()">Update Recipe</button>
+                <div style="display: flex;">
+                    <button type="button" (click)="updateRecipe()" style="margin-right: 32px;">Update Recipe</button>
+                    <button type="button" (click)="cancelUpdate()" style="background-color: firebrick;">Cancel</button>
                 </div>
             </form>
         </div>

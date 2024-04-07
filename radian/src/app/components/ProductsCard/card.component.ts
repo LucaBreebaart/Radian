@@ -27,7 +27,7 @@ interface Ingredients {
 })
 export class productsCard {
 
-  selectedLocation: string = '';
+  selectedLocation!: keyof Ingredients; 
   selectedRecipe: Recipe | undefined;
 
   constructor(
@@ -35,7 +35,7 @@ export class productsCard {
     private recipeservice: RecipeService,
     private locationService: LocationService
   ) {
-    this.selectedLocation = this.locationService.getSelectedLocation() || ''
+    this.selectedLocation = this.locationService.getSelectedLocation() as keyof Ingredients;
   }
 
   navToEditProduct(id: number) {
@@ -76,6 +76,64 @@ export class productsCard {
     this.checkCraftability()
   }
 
+  checkCraftability() {
+    this.selectedRecipe!.isCraftable = true;
+
+    this.selectedRecipe!.products?.forEach((product) => {
+      let selectedLocationAmount = 0;
+
+      switch (this.selectedLocation) {
+        case 'durban' :
+          selectedLocationAmount = product.ingredient.durban;
+          break;
+        case 'pretoria' :
+          selectedLocationAmount = product.ingredient.pretoria;
+          break;
+        case 'capeTown' :
+          selectedLocationAmount = product.ingredient.capeTown;
+          break;    
+      }
+
+      if (product.amount > selectedLocationAmount) {
+        this.selectedRecipe!.isCraftable = false;
+        console.log('Not Craftable');
+        return;
+      } else {
+        console.log(selectedLocationAmount)
+      }
+
+    })
+  }
+
+  // checkCraftability() {
+  //   this.selectedRecipe!.isCraftable = true
+
+  //   this.selectedRecipe!.products?.forEach((product) => {
+
+  //     if (product.amount > product.ingredient.selectedLocation) {
+  //       this.selectedRecipe!.isCraftable = false
+  //       console.log('Not Craftable' + product.ingredient.capeTown )
+  //       return
+  //     } else {
+  //       console.log(product.ingredient)
+  //     }
+  //   })
+  // }
+
+  craftNewRecipe(recipe: Recipe) {
+    console.log(2)
+    if (this.selectedRecipe!.id == recipe.id) {
+      this.recipeservice.craftRecipe(recipe).subscribe((data) => {
+        this.selectedRecipe! = data
+        
+      })
+    }
+    
+  }
+
+} 
+
+
   // isValidIngredientKey(key: string): key is keyof Ingredients {
   //   return key.toLowerCase() === 'durban' || key.toLowerCase() === 'pretoria' || key.toLowerCase() === 'capetown';
   // }
@@ -108,30 +166,3 @@ export class productsCard {
   //     });
   //   }
   // }
-
-  checkCraftability() {
-    this.selectedRecipe!.isCraftable = true
-
-    this.selectedRecipe!.products?.forEach((product) => {
-
-      if (product.amount > product.ingredient.capeTown) {
-        this.selectedRecipe!.isCraftable = false
-        console.log('Not Craftable' + product.ingredient.capeTown )
-        return
-      } else {
-        console.log(product.ingredient)
-      }
-    })
-  }
-
-  craftNewRecipe(recipe: Recipe) {
-    if (this.selectedRecipe!.id == recipe.id) {
-      this.recipeservice.craftRecipe(recipe).subscribe((data) => {
-        this.selectedRecipe! = data
-      })
-    }
-  }
-
-} 
-
-
