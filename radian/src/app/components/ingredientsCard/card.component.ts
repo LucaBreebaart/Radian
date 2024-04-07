@@ -28,6 +28,8 @@ export class IngredientsComponent {
     category: "Dummy",
     icon: "assets/python.png",
     description: "Dummy",
-    stock: 0
+    durban: 0,
+    pretoria: 0,
+    capeTown: 0
   }
 }

@@ -27,7 +27,10 @@ export class IngredientsPage {
       category: "markup",
       icon: "",
       description: "Building blocks of the web",
-      stock: 4
+      durban: 0,
+      pretoria: 0,
+      capeTown: 0
+    
     },
     {
       id: 3,
@@ -36,7 +39,9 @@ export class IngredientsPage {
       category: "styling",
       icon: "",
       description: "Makes the web pretty",
-      stock: 10
+      durban: 0,
+      pretoria: 0,
+      capeTown: 0
     },
     {
       id: 3,
@@ -45,7 +50,9 @@ export class IngredientsPage {
       category: "programming",
       icon: "",
       description: "Makes the web smart",
-      stock: 13
+      durban: 0,
+      pretoria: 0,
+      capeTown: 0
     }
   ];
   ngOnInit() {

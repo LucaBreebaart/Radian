@@ -3,8 +3,21 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
 import { RecipeService } from '../../services/recipe.service';
 import { Recipe } from '../../models/recipe.model';
 import { Router } from '@angular/router';
+import { LocationService } from '../../services/location.service';
+// import { Ingredients } from '../../models/ingredients.model';
+import { Products } from '../../models/products.model';
 
-
+interface Ingredients {
+  id?: number;
+  name: string;
+  sku: string;
+  category: string;
+  icon: string;
+  description: string;
+  durban: number;
+  pretoria: number;
+  capeTown: number;
+}
 @Component({
   selector: 'productsCard',
   standalone: true,
@@ -14,12 +27,16 @@ import { Router } from '@angular/router';
 })
 export class productsCard {
 
-  // constructor (private service: RecipeService) {}
+  selectedLocation: string = '';
+  selectedRecipe: Recipe | undefined;
 
   constructor(
     private router: Router,
-    private service: RecipeService
-  ) {}
+    private recipeservice: RecipeService,
+    private locationService: LocationService
+  ) {
+    this.selectedLocation = this.locationService.getSelectedLocation() || ''
+  }
 
   navToEditProduct(id: number) {
     this.router.navigate(['editproduct', id]);
@@ -42,13 +59,13 @@ export class productsCard {
   }
 
   getRecipes(){
-    this.service.getAllRecipes().subscribe((data) => {
+    this.recipeservice.getAllRecipes().subscribe((data) => {
       this.recipe = data
       console.log("This is the data youre looking for ", data)
     })
   }
 
-  selectedRecipe?: Recipe
+  // selectedRecipe?: Recipe
 
   setSelectedRecipe(recipe: Recipe) {
     
@@ -59,14 +76,47 @@ export class productsCard {
     this.checkCraftability()
   }
 
+  // isValidIngredientKey(key: string): key is keyof Ingredients {
+  //   return key.toLowerCase() === 'durban' || key.toLowerCase() === 'pretoria' || key.toLowerCase() === 'capetown';
+  // }
+
+
+  // checkCraftability() {
+  //   if (!this.selectedRecipe) return;
+  //   this.selectedRecipe.isCraftable = true;
+  //   this.selectedRecipe.products?.forEach((product: Products) => {
+  //     const locationKey = this.selectedLocation.toLowerCase();
+  //     if (this.isValidIngredientKey(locationKey) && product.amount > product.ingredient[locationKey]) {
+  //       this.selectedRecipe.isCraftable = false;
+  //       console.log('Not Craftable ' + product.ingredient[locationKey]);
+  //       return;
+  //     } else {
+  //       console.log(product.ingredient);
+  //     }
+  //   });
+  // }
+
+  // craftNewRecipe(recipe: Recipe) {
+  //   if (this.selectedRecipe!.id == recipe.id) {
+  //     this.selectedRecipe!.products?.forEach((product) => {
+  //       product.ingredient[this.selectedLocation.toLowerCase()] -= product.amount
+  //     })
+  //     this.selectedRecipe!.amountCrafted += 1;
+
+  //     this.recipeservice.craftRecipe(recipe).subscribe((data) => {
+  //       this.selectedRecipe! = data;
+  //     });
+  //   }
+  // }
+
   checkCraftability() {
     this.selectedRecipe!.isCraftable = true
 
     this.selectedRecipe!.products?.forEach((product) => {
 
-      if (product.amount > product.ingredient.stock) {
+      if (product.amount > product.ingredient.capeTown) {
         this.selectedRecipe!.isCraftable = false
-        console.log('Not Craftable' + product.ingredient.stock )
+        console.log('Not Craftable' + product.ingredient.capeTown )
         return
       } else {
         console.log(product.ingredient)
@@ -76,37 +126,12 @@ export class productsCard {
 
   craftNewRecipe(recipe: Recipe) {
     if (this.selectedRecipe!.id == recipe.id) {
-      this.service.craftRecipe(recipe).subscribe((data) => {
+      this.recipeservice.craftRecipe(recipe).subscribe((data) => {
         this.selectedRecipe! = data
       })
     }
   }
-}
 
-// Get all recipes
-  
+} 
 
 
-//   selectedRecipe?: Recipe
-
-//   setSelectedRecipe(recipe: Recipe){
-//     this.selectedRecipe = recipe
-
-
-//   }
-
-//   checkCraftablity() {
-    
-//     this.selectedRecipe!.isCraftable = true;
-
-//     this.selectedRecipe!.products?.forEach((product) =>{
-
-//       if (product.amount > product.ingredient.stock) {
-
-//         this.selectedRecipe!.isCraftable = false
-//         console.log('not craftable' + product.ingredient.name)
-//         return
-//       }
-//     });
-//   }
-// }

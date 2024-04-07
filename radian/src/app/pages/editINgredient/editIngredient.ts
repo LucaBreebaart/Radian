@@ -52,7 +52,7 @@ export class EditIngredientComponent implements OnInit {
         category: this.ingredient.category,
         icon: this.ingredient.icon,
         description: this.ingredient.description,
-        stock: this.ingredient.stock
+        stock: this.ingredient
       });
     }
   }

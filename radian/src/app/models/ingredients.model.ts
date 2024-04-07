@@ -5,5 +5,7 @@ export interface Ingredients {
     category: string;
     icon: string;
     description:string;
-    stock: number;
+    durban: number;
+    pretoria: number;
+    capeTown: number
 }
