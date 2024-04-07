@@ -1,4 +1,4 @@
-<mat-form-field>
+<mat-form-field [appearance]="'outline'">
     <mat-label>Select Location</mat-label>
     <mat-select [(ngModel)]="selectedLocation" (selectionChange)="onSelectionChange($event.value)">
         <mat-option *ngFor="let location of locations" [value]="location">{{ location }}</mat-option>
