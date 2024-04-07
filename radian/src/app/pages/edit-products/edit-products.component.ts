@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../models/recipe.model';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RecipeService } from '../../services/recipe.service';
 
 @Component({
@@ -18,6 +18,7 @@ export class EditProductsComponent implements OnInit {
   editProductForm: FormGroup
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private recipeService: RecipeService,
     private formBuilder: FormBuilder
@@ -85,6 +86,7 @@ export class EditProductsComponent implements OnInit {
       this.recipeService.updateRecipeById(this.recipe.id, this.editProductForm.value)
       .subscribe({
           next: (updatedRecipe) => {
+            this.router.navigate([''])
             console.log("Recipe updated successfully:", updatedRecipe);
         }, 
         error: (error) =>{
@@ -93,5 +95,9 @@ export class EditProductsComponent implements OnInit {
       })
       
     }
+  }
+
+  cancelUpdate(): void {
+    this.router.navigate([''])
   }
 }
