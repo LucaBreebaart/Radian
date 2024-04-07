@@ -8,7 +8,6 @@
     --black: black;
 }
 
-
 /* Body */
 * {
     -webkit-box-sizing: border-box;
@@ -19,6 +18,8 @@
 .body {
     font-family: "Inter", sans-serif;
     font-size: 16px;
+    font-display: var(--dark-grey);
+    color: var(--dark-grey);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -34,7 +35,7 @@
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
-    margin-left: 220px;
+    margin-left: 260px;
     margin-right: 0;
     padding: 0;
     display: block;
@@ -47,7 +48,7 @@
 }
 
 .body-wrapper {
-    width: 100%;
+    width: auto;
     max-width: 1440px;
     grid-column-gap: 20px;
     grid-row-gap: 20px;

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Ingredients } from '../../models/ingredients.model';
 import { IngredientsService } from '../../services/ingredients.service';
+import { LocationService } from '../../services/location.service';
 
 @Component({
   selector: 'app-newIngredeint',
@@ -17,16 +18,17 @@ import { IngredientsService } from '../../services/ingredients.service';
 })
 export class NewIngredientPage {
 
-  constructor(private service: IngredientsService) { }
+  constructor(
+    private service: IngredientsService,
+    private locationService: LocationService,
+
+  ) {
+    this.selectedLocation = this.locationService.getSelectedLocation() as keyof Ingredients;
+  }
 
   IngredientList: Ingredients[] = [];
 
-  ngOnInit() {
-    this.service.getAllInventory().subscribe((data) => {
-      console.log(data);
-      this.IngredientList = data
-    })
-  }
+  selectedLocation!: keyof Ingredients;
 
   // Form variables
   // think of this as your useStates
@@ -37,10 +39,9 @@ export class NewIngredientPage {
     icon: new FormControl(""),
     stock: new FormControl(0, Validators.required)
   })
-
   addNewIngredient() {
     console.warn(this.newIngredientItem.value);
-
+    console.log(this.selectedLocation)
     // SKU
     // Extract name, category, and ID
     const name: string = this.newIngredientItem.value.name!;
@@ -65,22 +66,23 @@ export class NewIngredientPage {
       name: name,
       category: category,
       description: this.newIngredientItem.value.description!,
-      stock: this.newIngredientItem.value.stock!,
-      sku: sku,
+      currentLocation: this.selectedLocation, 
+      stock: this.newIngredientItem.value.stock!, 
       icon: this.newIngredientItem.value.icon!
     };
+    console.log(newIngredientData)
 
-    // Call the service method to add the new ingredient
+    
     this.service.addIngredient(newIngredientData).subscribe(
       (response: any) => {
         console.log('New ingredient added successfully:', response);
-        
+
         this.newIngredientItem.reset();
       },
       (error) => {
         console.error('Error adding new ingredient:', error);
-       
+
       }
     );
   }
-}    
+}
