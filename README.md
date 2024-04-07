@@ -17,13 +17,20 @@
     <a href="https://github.com/LucaBreebaart/Radian/tree/main/radian"><strong>Explore the files »</strong></a>
     <br />
     <br />
-    <a href="add The demo Video Link here">View Demo</a>
+    <a href="https://youtu.be/KmvyycEPik4">View Demo</a>
     ·
     <a href="bug report link">Report Bug</a>
     ·
     <a href="Maybe">Request Feature</a>
   </p>
+  
   <br />
+    <p align="center">
+    ·
+    <a href="https://github.com/LucaBreebaart/Spirio">Spirio - front end store</a>
+    ·
+    <a href="https://github.com/LucaBreebaart/Radian_Backend">Radian Backend - database implementation</a>
+  </p>
 </div>
 
 ## About this Project
@@ -280,7 +287,7 @@ Integrating the project with Spirio, a platform for selling products, presents a
 
 To see a run through of the application, click below:
 
-[View Demonstration](path/to/video/demonstration)
+[View Demonstration](https://youtu.be/KmvyycEPik4)
 
 <!-- ROADMAP -->
 
