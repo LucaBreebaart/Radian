@@ -42,4 +42,7 @@ export class RecipeService {
     return this.http.put<Recipe>(craftUrl, {amount: recipe.amountCrafted +1, products: recipe.products})
   }
 
+  // sendCraftabilityData(data: any): Observable<any>{
+
+  // }
 }

@@ -86,6 +86,7 @@ export class EditProductsComponent implements OnInit {
       this.recipeService.updateRecipeById(this.recipe.id, this.editProductForm.value)
       .subscribe({
           next: (updatedRecipe) => {
+            this.router.navigate([''])
             console.log("Recipe updated successfully:", updatedRecipe);
         }, 
         error: (error) =>{
