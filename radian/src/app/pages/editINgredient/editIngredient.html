@@ -54,8 +54,8 @@
                         <div>Stock</div>
                     </div>
                     <div class="input-container">
-                        <input formControlName="stock" class="input" type="number" [value]="ingredient?.stock" />
-                    </div>
+                        <input [formControlName]="selectedLocation" class="input" type="number"/>
+                    </div>                 
                 </div>
                 <div style="display: flex; gap: 20px;">
                     <button type="button" class="primary-btn" style="background-color: brown;" (click)="cancelEdit()">Cancel</button>

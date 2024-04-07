@@ -25,7 +25,8 @@ export const routes: Routes = [
   { path: 'home', component: HomePage, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
 
-  { path: 'edit-ingredient/:id', component: EditIngredientComponent }, 
+  // { path: 'edit-ingredient/:id', component: EditIngredientComponent }, 
+  { path: 'edit-ingredient/:id', component: EditIngredientComponent },
   { path: 'editproduct/:id', component: EditProductsComponent},
 
   { path: '', redirectTo: 'inventory', pathMatch: 'full' },
