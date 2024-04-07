@@ -132,7 +132,39 @@ The `Conceptual Process` is the set of actions, activities and research that was
 The `Development Process` is the technical implementations and functionality done in the frontend and backend of the application.
 
 ### Implementation Process
+
 <!-- stipulate all of the functionality you included in the project -->
+
+1. Angular Application Setup
+- Angular CLI Installation: Initialized the project using Angular CLI.
+- Project Structure: Organized the project structure according to Angular best practices.
+- Angular Material Integration: Integrated Angular Material for UI components.
+- Routing Configuration: Configured routing for different views and components.
+2. Component Development
+- Dashboard Component: Created the dashboard component to display ingredient inventory across multiple locations.
+- Card Component: Developed the card component to represent individual ingredients in the inventory.
+- Edit Ingredient Component: Implemented the edit ingredient component to allow users to modify ingredient details.
+- Login Component: Created the login component for user authentication.
+- Navigation Component: Developed the navigation component for easy navigation within the application.
+3. Service Integration
+- HTTP Client Service: Implemented HTTP client service to communicate with the backend server for fetching and updating data.
+- Authentication Service: Developed an authentication service to handle user login/logout functionality and user authentication.
+- Ingredients Service: Created a service to manage ingredient-related operations such as fetching, updating, and adding ingredients.
+- location service
+4. Backend Integration
+- API Integration: Integrated with backend APIs to fetch and update ingredient data.
+- User Authentication: Implemented authentication mechanisms to secure user login and registration.
+- Authorization: Implemented role-based authorization to control access to admin functionalities.
+5. Features and Functionality
+- Inventory Management: Developed functionality to manage ingredient inventory across multiple locations.
+- User Authentication: Implemented secure user authentication with hashed passwords and reCAPTCHA integration.
+- Admin Rights Management: Provided administrators with the ability to manage the platform effectively, controlling user access and monitoring content.
+- Dynamic Routing: Configured dynamic routing to navigate between different components based on user interactions.
+- Responsive UI: Ensured the application's UI is responsive and optimized for various devices and screen sizes.
+- Error Handling: Implemented error handling mechanisms to provide meaningful error messages to users in case of failures.
+
+<br>
+
 ![Image Description](radian/assets/ERD.png)
 
 #### Highlights
@@ -154,6 +186,11 @@ The `Development Process` is the technical implementations and functionality don
 ## Final Outcome
 
 ### Mockups
+
+![Image Description](radian/assets/mockup.png)
+![Image Description](radian/assets/mockup2.png)
+![Image Description](radian/assets/mockup3.png)
+
 
 ### Video Demonstration
 
