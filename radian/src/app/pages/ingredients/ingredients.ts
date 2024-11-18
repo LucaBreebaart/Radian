@@ -17,7 +17,7 @@ import { LocationService } from '../../services/location.service';
 })
 export class IngredientsPage implements OnInit {
   inventoryList: Ingredients[] = [];
-  selectedLocation: string = ''; // Initialize with an empty string
+  selectedLocation: string = '';
 
   constructor(
     private service: IngredientsService,
@@ -25,7 +25,7 @@ export class IngredientsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.selectedLocation = this.locationService.getSelectedLocation() || ''; // Provide a fallback empty string
+    this.selectedLocation = this.locationService.getSelectedLocation() || '';
     this.loadInventory();
   }
 
@@ -33,6 +33,7 @@ export class IngredientsPage implements OnInit {
     this.service.getAllInventory(this.selectedLocation).subscribe((data) => {
       console.log(data);
       this.inventoryList = data;
+      // No filtering based on stock level
     });
   }
 

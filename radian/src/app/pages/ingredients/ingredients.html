@@ -12,8 +12,7 @@
                     </div>
                     <div class="card-headings">
                         <div class="heading-container">
-                            <div></div>
-                            <!-- leve empty -->
+                            <div>Name</div>
                         </div>
                         <div class="heading-container _2">
                             <div>Stock</div>
@@ -22,23 +21,18 @@
                             <div>SKU</div>
                         </div>
                         <div class="heading-container _2">
-                            <div></div>
-                            <!-- leve empty -->
+                            <div>Category</div>
                         </div>
                         <div class="heading-container _2">
-                            <div></div>
-                            <!-- leve empty -->
-                        </div>
-                        <div class="heading-container _3">
-                            <div></div>
-                            <!-- leve empty -->
+                            <div>Actions</div>
                         </div>
                     </div>
 
-                    <app-ingredients *ngFor="let item of inventoryList" [item]="item" class="ingredientscard"></app-ingredients>
+                    <app-ingredients *ngFor="let item of inventoryList" [item]="item"
+                        class="ingredientscard"></app-ingredients>
+
                 </div>
             </div>
         </div>
-
     </div>
 </body>

@@ -1,82 +1,63 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
-
-  constructor(private http: HttpClient) { }
-  
-  // influeces our behaviour
   private isLoggedIn = new BehaviorSubject<boolean>(false);
+  private loginUrl = "http://localhost:3000/users/login";
 
-  // http url
-  private loginUrl = "http://localhost:3000/users/login"
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.checkCurrentUserLogin();
+    }
+  }
 
-  // login funtion 
-  loginUser(email: string, password: string): Observable<Boolean> {
-
-    // make the http request, recieve the response of user info, then save user info to session storage
-
+  loginUser(email: string, password: string): Observable<boolean> {
     return this.http.post<any>(this.loginUrl, { email, password }).pipe(
       tap(response => {
-        if (response) {
-          // set our session storage
-          console.log(response)
-          sessionStorage.setItem("user", JSON.stringify(response))
-          //login to true
-          this.isLoggedIn.next(true)
+        if (response && isPlatformBrowser(this.platformId)) {
+          sessionStorage.setItem("user", JSON.stringify(response));
+          this.isLoggedIn.next(true);
         }
       })
-    )
+    );
   }
-
-  // Logout funtion
 
   logout() {
-    sessionStorage.removeItem("user")
-    this.isLoggedIn.next(false) // set the state to false
-  }
-
-  //returns the logged in user info
-
-  CheckCurrentUSerLogin(): boolean {
-    var user = JSON.parse(sessionStorage.getItem("user")!)
-
-    if (user) {
-      this.isLoggedIn.next(true)
-      return true
-    } else {
-      this.isLoggedIn.next(false)
-      return false
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.removeItem("user");
     }
-
+    this.isLoggedIn.next(false);
   }
 
-  // Two funtions to: check if a user is logged in and authenticated
+  checkCurrentUserLogin(): boolean {
+    if (isPlatformBrowser(this.platformId)) {
+      const user = JSON.parse(sessionStorage.getItem("user") || 'null');
+      if (user) {
+        this.isLoggedIn.next(true);
+        return true;
+      }
+    }
+    this.isLoggedIn.next(false);
+    return false;
+  }
 
   checkIfLoggedIn(): Observable<boolean> {
-
-    this.CheckCurrentUSerLogin()
-
-    return this.isLoggedIn.asObservable()
-
+    return this.isLoggedIn.asObservable();
   }
 
-  isUserAdmin() {
-    var user = JSON.parse(sessionStorage.getItem("user")!)
-
-    if (user) {
-      if (user.isAdmin == true) {
-        return true
-      } else {
-        return false
-      }
-    } else {
-      return false
+  isUserAdmin(): boolean {
+    if (isPlatformBrowser(this.platformId)) {
+      const user = JSON.parse(sessionStorage.getItem("user") || 'null');
+      return user?.isAdmin === true;
     }
+    return false;
   }
 }
