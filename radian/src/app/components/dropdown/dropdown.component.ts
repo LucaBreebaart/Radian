@@ -15,28 +15,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class LocationDropdownComponent  {
 
-  //-----------------------Added for Testing--------------------------------------------//
-  
-  // selectedLocation: string;
-  // locations: string[] = ['Durban', 'Pretoria', 'Cape Town'];
-
-  // constructor(private locationService: LocationService) {
-  //   this.selectedLocation = this.locationService.getSelectedLocation() || '';
-  // }
-
-  // ngOnInit() {
-  //   this.selectedLocation = this.locationService.getSelectedLocation();
-  //   this.locationService.locationChanged.subscribe((location: string) => {
-  //     this.selectedLocation = location
-  //   })
-  // }
-
-  // onSelectionChange(selectedLocation: string) {
-  //   this.locationService.setSelectedLocation(selectedLocation)
-  //   console.log(selectedLocation)
-  // }
-
-  // ---------------------------------------------------------------------------------- //
   @Output() locationSelected = new EventEmitter<string>();
   selectedLocation: string;
   locations: string[] = ['durban', 'pretoria', 'capeTown'];

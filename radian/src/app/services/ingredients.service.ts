@@ -6,15 +6,16 @@ import { Ingredients } from '../models/ingredients.model';
 @Injectable({
   providedIn: 'root'
 })
-
 export class IngredientsService {
-
   constructor(private http: HttpClient) { }
 
   private baseUrl = "http://localhost:3000/ingredients"
 
-  getAllInventory(): Observable<Ingredients[]> {
-    return this.http.get<Ingredients[]>(this.baseUrl)
+  getAllInventory(location?: string): Observable<Ingredients[]> {
+    if (location && location.trim() !== '') {
+      return this.getIngredientsByLocation(location);
+    }
+    return this.http.get<Ingredients[]>(this.baseUrl);
   }
 
   updateInventoryAmount(id: number, newAmount: number): Observable<Ingredients> {
@@ -35,7 +36,7 @@ export class IngredientsService {
   }
 
   getIngredientsByLocation(location: string): Observable<Ingredients[]> {
-    return this.http.get<Ingredients[]>(`http://localhost:3000/ingredients/${location}`);
+    return this.http.get<Ingredients[]>(`${this.baseUrl}/${location}`);
   }
 
 }

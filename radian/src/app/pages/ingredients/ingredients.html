@@ -1,9 +1,9 @@
 <body class="body" style="background-color: var(--grey);">
     <div class="container">
-
         <div class="body-container">
             <div class="body-wrapper">
                 <h3>Ingredients Inventory</h3>
+                <app-location-dropdown (locationSelected)="onLocationSelected($event)"></app-location-dropdown>
                 <div class="card-wrapper">
                     <div class="card-header">
                         <a href="#" class="primary-btn w-inline-block">
@@ -36,7 +36,6 @@
                     </div>
 
                     <app-ingredients *ngFor="let item of inventoryList" [item]="item" class="ingredientscard"></app-ingredients>
-
                 </div>
             </div>
         </div>
